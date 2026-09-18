@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Caveat:wght@400..700&family=Instrument+Serif:ital@0;1&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --lime: #D9B44A;
+    --lime-2: #CFAA3D;
+    --ink: #1C2418;
+    --paper: #F4F2EA;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Figtree", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #fff;
+    color: var(--ink);
+    overflow-x: hidden;
+}
+
+::selection {
+    background: var(--lime);
+    color: var(--ink);
+}
+
+.font-script {
+    font-family: "Caveat", cursive;
+    font-weight: 600;
+}
+
+.font-display {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+/* Vietnamese: Caveat & Instrument Serif lack Vietnamese glyphs – swap for fonts with full diacritics support */
+html[lang="vi"] .font-script {
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;
+}
+
+html[lang="vi"] .font-display {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-dark {
+    background: rgba(5, 8, 5, 0.06);
+    border: 1px solid rgba(5, 8, 5, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.dash-card {
+    background: #242D1F;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+}
+
+.receipt-edge {
+    clip-path: polygon(
+        0 0, 100% 0, 100% calc(100% - 12px),
+        97.5% 100%, 95% calc(100% - 12px), 92.5% 100%, 90% calc(100% - 12px), 87.5% 100%, 85% calc(100% - 12px),
+        82.5% 100%, 80% calc(100% - 12px), 77.5% 100%, 75% calc(100% - 12px), 72.5% 100%, 70% calc(100% - 12px),
+        67.5% 100%, 65% calc(100% - 12px), 62.5% 100%, 60% calc(100% - 12px), 57.5% 100%, 55% calc(100% - 12px),
+        52.5% 100%, 50% calc(100% - 12px), 47.5% 100%, 45% calc(100% - 12px), 42.5% 100%, 40% calc(100% - 12px),
+        37.5% 100%, 35% calc(100% - 12px), 32.5% 100%, 30% calc(100% - 12px), 27.5% 100%, 25% calc(100% - 12px),
+        22.5% 100%, 20% calc(100% - 12px), 17.5% 100%, 15% calc(100% - 12px), 12.5% 100%, 10% calc(100% - 12px),
+        7.5% 100%, 5% calc(100% - 12px), 2.5% 100%, 0 calc(100% - 12px)
+    );
+}
+
+.btn-lime {
+    background: var(--lime-2);
+    color: var(--ink);
+    border-radius: 12px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+.btn-lime:hover {
+    background: var(--lime);
+    box-shadow: 0 10px 30px -10px rgba(217, 180, 74, 0.6);
+}
+
+.btn-ink {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-ink:hover {
+    background: #2A3424;
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.5);
+}
+
+.grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+}
+
+@keyframes kenburns {
+    0% { transform: scale(1) translate3d(0, 0, 0); }
+    100% { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+}
+.kenburns {
+    animation: kenburns 24s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+.marquee {
+    animation: marquee 40s linear infinite;
+}
+
+@keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+.floaty {
+    animation: floaty 5s ease-in-out infinite;
+}
+
+@keyframes scrollDot {
+    0% { transform: translateY(0); opacity: 1; }
+    80% { transform: translateY(14px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; }
+}
+.scroll-dot {
+    animation: scrollDot 1.8s ease-in-out infinite;
+}
+
+.digit-col {
+    display: inline-block;
+    height: 1em;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+.digit-col > span {
+    display: block;
+    transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.digit-col > span > span {
+    display: block;
+    height: 1em;
+    line-height: 1em;
+}
+
+.card-hover {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.25);
+}
+
+.yt-frame {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border: 0;
+    border-radius: 16px;
+}
+
+.range-lime {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--lime) 0%, var(--lime) var(--p, 50%), rgba(5, 8, 5, 0.1) var(--p, 50%), rgba(5, 8, 5, 0.1) 100%);
+    outline: none;
+}
+.range-lime::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--ink);
+    border: 4px solid #fff;
+    box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+.range-lime::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+.range-lime::-moz-range-thumb {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--ink);
+    border: 4px solid #fff;
+    cursor: pointer;
+}
+
+code {
+    font-family:
+        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 3.9%;
+        --primary: 0 0% 9%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 0 0% 96.1%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 0 0% 96.1%;
+        --muted-foreground: 0 0% 45.1%;
+        --accent: 0 0% 96.1%;
+        --accent-foreground: 0 0% 9%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 89.8%;
+        --ring: 0 0% 3.9%;
+        --chart-1: 12 76% 61%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+        --radius: 0.5rem;
+    }
+    .dark {
+        --background: 0 0% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 0 0% 9%;
+        --secondary: 0 0% 14.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 14.9%;
+        --muted-foreground: 0 0% 63.9%;
+        --accent: 0 0% 14.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 14.9%;
+        --input: 0 0% 14.9%;
+        --ring: 0 0% 83.1%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}

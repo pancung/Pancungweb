@@ -1,0 +1,33 @@
+.App {
+    min-height: 100vh;
+    background: #fff;
+}
+
+.container-x {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+@media (min-width: 1024px) {
+    .container-x {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+.section-label {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6E6F5E;
+    font-weight: 500;
+}
+
+.paper-card {
+    background: #F4F2EA;
+    border-radius: 28px;
+}
