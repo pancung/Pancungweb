@@ -1,0 +1,31 @@
+{
+  "summary": "Frontend testing of Teya-inspired restructured homepage (Pan Čung). Verified section order, gold rules card content in card-intro + rules-panel, CardIntro scroll animation, GoldIntro plan-sheet, all 10 bento widgets on top+bottom (invest chat animation, protect mock, mortgage compare, advisor flow, consult, reserve counter, goals with popup), expand dialogs (incl. new 'rules' and 'protect' ids), About section, App section (phone chat, language greetings cycle, family cursor, mode toggle), compact calc pill tabs (invest/mortgage/fire/health) + all-link href, NumbersStrip 8/500+, VI translations, mobile 390 no overflow + no ±150 X-offset, /jak-pracuji without NumbersStrip/About, contact form POST /api/leads = 201, /api/health = 200. All assertions passed with zero console/page errors.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Mobile 390 – hero", "issues": ["A single <img> extends ~1.3px past viewport (right=391.29). Non-blocking, no horizontal scroll (scrollWidth=390), but could be tightened."]}
+    ]
+  },
+  "animation_measurements": {
+    "before_section_enters (secTop=834)": {"leftX": -150, "rightX": 150, "textY": 40, "cardRotateY": 0, "cardOpacity": 1},
+    "secTop≈350": {"leftX": -150, "rightX": 150, "textY": 40, "cardRotateY": 0, "cardOpacity": 1},
+    "secTop≈0": {"leftX": -43.1, "rightX": 43.1, "textY": 22.2, "cardRotateY": 49.6, "cardTranslateY": 66.2, "cardOpacity": 1},
+    "secTop≈-133": {"leftX": 0, "rightX": 0, "textY": 2.4, "cardRotateY": 90, "cardTranslateY": 120, "cardOpacity": 0},
+    "rules_panel_card_in_view": {"transform": "perspective(1400px) (identity)", "opacity": 1}
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "At secTop≈0 the texts are still ~43px offset (not ~0). The spec says translateX≈0 when secTop is 0…-60. Current mapping [0.46,0.64]→[±150,0] means texts finish sliding in only when section top ≈ -180px past viewport top. If exact teya-like feel is desired, tighten upper bound (e.g. 0.5)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "N/A – public site",
+  "seed_data_creation": "1 TEST_ lead posted via /kontakt (201 Created)",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Card-intro texts don't fully return to X=0 until section top ~-180px because of the [0.46,0.64] mapping range. Non-blocking but noted as design fine-tuning. All 10 bento widget testids present. Reserve/protect counters take ~3-4s to complete count-up after in-view; wait 4s before asserting numeric values.",
+  "rca of the issue": "N/A – no bugs found"
+}
