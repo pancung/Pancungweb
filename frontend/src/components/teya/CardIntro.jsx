@@ -37,11 +37,11 @@ export default function CardIntro() {
   const c = t.cardIntro;
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const rotateY = useScrollMap(scrollYProgress, [0, 0.55], [-88, 0]);
-  const cardScale = useScrollMap(scrollYProgress, [0, 0.55], [0.8, 1]);
-  const leftX = useScrollMap(scrollYProgress, [0.25, 0.6], [-120, 0]);
-  const rightX = useScrollMap(scrollYProgress, [0.25, 0.6], [120, 0]);
-  const textOpacity = useScrollMap(scrollYProgress, [0.25, 0.6], [0, 1]);
+  const rotateY = useScrollMap(scrollYProgress, [0, 0.5], [-88, 0]);
+  const cardScale = useScrollMap(scrollYProgress, [0, 0.5], [0.8, 1]);
+  const leftX = useScrollMap(scrollYProgress, [0.18, 0.48], [-120, 0]);
+  const rightX = useScrollMap(scrollYProgress, [0.18, 0.48], [120, 0]);
+  const textOpacity = useScrollMap(scrollYProgress, [0.18, 0.48], [0, 1]);
 
   return (
     <section ref={ref} className="relative bg-white" style={{ height: "200vh" }} data-testid="card-intro">

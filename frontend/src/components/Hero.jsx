@@ -49,9 +49,9 @@ export default function Hero() {
         {/* Media */}
         <motion.div style={{ scale, borderRadius: radius, y: mediaY }} className="absolute inset-0 overflow-hidden will-change-transform">
           <img src={images.hero} alt="Pan Čung" className="kenburns absolute inset-0 h-full w-full object-cover object-[90%_center] lg:object-right" />
-          {images.heroVideo && !videoFailed && (
+          {images.heroVideo && (
             <video
-              className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000" style={{ opacity: videoReady ? 1 : 0 }}
+              className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000" style={{ opacity: videoReady && !videoFailed ? 1 : 0 }}
               src={images.heroVideo} autoPlay muted loop playsInline preload="auto"
               onCanPlay={() => setVideoReady(true)} onError={() => setVideoFailed(true)}
               data-testid="hero-video"
@@ -89,7 +89,7 @@ export default function Hero() {
         <motion.div style={{ opacity: titleOpacity, scale: titleScale }} className="pointer-events-none absolute inset-0 flex items-center justify-center px-6">
           <h1 className="font-script text-center leading-[0.88] text-[#D9B44A] drop-shadow-[0_16px_50px_rgba(0,0,0,0.45)]" data-testid="hero-title">
             {h.script.map((line, i) => (
-              <motion.span key={line} initial={{ opacity: 0, y: 40, filter: "blur(10px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 1.1, delay: 0.3 + i * 0.25, ease: [0.22, 1, 0.36, 1] }} className="block text-[clamp(64px,13vw,210px)]">{line}</motion.span>
+              <motion.span key={line} initial={{ opacity: 0, y: 40, filter: "blur(10px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 1.1, delay: 0.3 + i * 0.25, ease: [0.22, 1, 0.36, 1] }} className="block text-[clamp(44px,13vw,210px)]">{line}</motion.span>
             ))}
           </h1>
         </motion.div>

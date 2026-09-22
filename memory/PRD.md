@@ -12,11 +12,13 @@ Pixel-perfect klon designu teya.com/cz (struktura, animace, typografie) adaptova
 ## Fonty (dle Teya – Figtree Variable + Denton + TeyaScript)
 Figtree (body – stejný font jako Teya), Caveat (script CS), Instrument Serif (display CS); pro VI automaticky Dancing Script + Playfair Display (vietnamská diakritika). **Uživatel: font Teya zachovat.**
 
-## Stránky / sekce
-- `/` – Hero (portrét, 2 plovoucí karty: 8 let zkušeností / 500+ klientů, zlatý glow) → ServiceCards (4 pilíře, tilt) → NumbersStrip (8 / 500+) → O mně → Wealth (interaktivní graf) → Journey (5 kroků) → System (7 modulů, sticky status) → Dashboard (finanční plán) → **Kalkulačky (4 taby, plně funkční přímo na webu)** → Případová studie → Obsah/videa → Testimonialy → CTA → FAQ
+## Stránky / sekce (2026-06 – homepage zrcadlí teya.com EN 1:1)
+- `/` – **Hero** (video `/videos/hero.mp4` s foto fallbackem + Ken Burns; centrovaný script „Finance, jednoduše.“, podtitul vlevo dole, CTA vpravo dole; na scroll se médium zmenší do karty, vjedou dashboard sloupce, objeví se claim; 2 plovoucí karty 8 let / 500+) → **CardIntro** (sticky 200vh, 3D zlatá klientská karta rotuje při scrollu, script text po stranách) → **GoldIntro** (zlatá sekce, nakloněný telefon s finančním plánem, 3 body, CTA → /jak-pracuji) → **BentoGrid** (id `sluzby`, 9 karet s mikro-animacemi + expand dialog: CASHFLOW stohující transakce, INVESTICE formulář s psaním a potvrzením, PARTNEŘI loga s cyklickým zvýrazněním, CÍLE 3 zlaté karty + vyskakující transakce, HYPOTÉKA porovnání bank, PORADCE flow diagram, FINANCOVÁNÍ nabídka s count-up, KONZULTACE rezervace, REZERVA „Nové“) → **AppSection** (telefon „Zeptejte se na cokoliv“, „Udělejte s plánem víc“, 2 pilulky, 3 mini karty: pokrok cílů, rodina s kurzorem, přepínač Osobně/Online) → **Kalkulačky** (4 taby) → **Případová studie** → **Reference** (účtenkové recenze klientů + fotky, „Nevěřte mým slovům. Věřte klientům.“) → CTA → FAQ
+- `/jak-pracuji` – přesunuté sekce: ServiceCards (#sluzby), NumbersStrip, O mně (#o-mne), Majetek (#majetek), 5 kroků, Systém (#system), Dashboard, Obsah (#obsah), CTA
 - `/kalkulacky?k=invest|mortgage|fire|health` – samostatná stránka kalkulaček + CTA + FAQ
 - `/zivotni-pojisteni`, `/investicni-pojisteni`, `/balicky`, `/kontakt` (formulář → API; předvyplnění z kalkulaček přes router state `{interest, message, calc}`)
 - Cookie lišta, plovoucí chat (lead), přepínač jazyků (vlajky), mobilní menu, scroll-progress lišta
+- Obsah nových sekcí: `/src/data/teya.js` (CS/VI), komponenty v `/src/components/teya/`
 
 ## Kalkulačky (frontend, `/src/components/calculators/`)
 - `math.js`: investSeries, annuity/amortization, fireSim, healthScore
@@ -42,6 +44,7 @@ Telefon, e-mail, adresa (placeholder), YouTube ID videí (placeholder), hero vid
 - Animace: WordReveal (nadpisy), TiltCard (karty), ScrollProgress, shine na tlačítkách, animované bary/grafy, AnimatePresence přepínání kalkulaček, page fade.
 
 ## Changelog
+- 2026-06 (2): Homepage přestavěna podle teya.com EN (hero video + script, 3D karta, zlatá sekce, bento 9 karet, app sekce, účtenkové recenze); staré sekce → /jak-pracuji; testing agent iteration_2 – vše prošlo, 4 drobné nálezy opraveny (video node, opacity card-intro, mobilní nadpis).
 - 2026-06: Kompilace 20-bodového redesignu ověřena; hero karty → 8 let / 500+; pás čísel bez placeholderů; 4 interaktivní kalkulačky přímo na webu + `/kalkulacky`; více animací; testováno testing agentem (backend 4/4, frontend ~100 % po opravách testid + path warnings).
 
 ## Backlog (návrhy)

@@ -1,0 +1,35 @@
+{
+  "summary": "Frontend E2E for the new Teya-inspired homepage and /jak-pracuji page. Verified all testids exist (hero, card-intro, gold-intro, bento 9 cards, app-section, testimonials, calculators), hero scroll overlay, bento micro-animations (cashflow-stack changes, invest-form toggles to 'Investice nastavena', funding-mock counts up to 4 800 000 Kč), expand dialog with /kontakt CTA and Escape close, navbar/Služby dropdown hrefs, VI language switch (all expected VI texts render, no 'undefined'), /jak-pracuji renders and hash scroll for #system and #majetek works, sections correctly removed from '/'. Backend /api/health = 200 and POST /api/leads creates lead (201). No console errors on '/' or '/jak-pracuji'.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Hero.jsx video", "issue": "Video element is unmounted on onError (conditional render), so [data-testid=\"hero-video\"] disappears from DOM if src fails / codec unsupported (headless). Spec requires the element to exist with src /videos/hero.mp4 regardless of playback. Keep <video> mounted (hidden via opacity) even after failure so the testid remains queryable.", "selector": "[data-testid=\"hero-video\"]", "priority": "LOW"},
+      {"component": "CardIntro.jsx", "issue": "card-intro-left/right opacity at the middle of the 200vh sticky section is only ~0.63–0.67 instead of ~1. Animation range likely maps 0.35→1 with 1 hit only near the end of the section, not middle. Consider shifting useScrollMap so opacity reaches 1 around scrollYProgress ~0.5.", "selector": "[data-testid=\"card-intro-left\"] / [data-testid=\"card-intro-right\"]", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Mobile 390px – Hero", "issues": ["Hero script headline overflows the viewport horizontally: SPAN.font-script has right=404px (>390). The clamp(40px,5vw,84px) minimum of 40px + 'jednoduše.' width pushes past 390. Consider clamp(28px, 8vw, 84px) or px-4 wrapper for the hero title on mobile."]},
+      {"screen": "Mobile 390px – /jak-pracuji", "issues": ["Horizontal snap-scroll container children (DIV.w-[220px] shrink-0 snap-start) report right=456px. Only a bug if this scroller is not intentionally horizontal; if intentional (mobile card carousel), please ensure the parent has overflow-x: auto so it does not create page-wide horizontal scroll. Body scrollWidth should equal innerWidth."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py (from iter 1)", "/app/test_reports/iteration_1.json"],
+  "action_items": [
+    "Keep <video data-testid=\"hero-video\"> mounted even when onError fires (so the DOM node/testid stays reachable per spec).",
+    "Adjust CardIntro useScrollMap so opacity of card-intro-left/right reaches ~1 at scroll midpoint of the 200vh section.",
+    "Fix hero title overflow on 390px viewport (reduce clamp min or add horizontal padding).",
+    "Verify /jak-pracuji horizontal scroller on mobile is contained (parent overflow-x-auto, no body-level horizontal overflow)."
+  ],
+  "critical_code_review_comments": [
+    "Hero video conditional render tied to a single-shot error state removes the element permanently; better UX/testability is to always render <video> and only hide it with CSS while playing the image fallback.",
+    "useScrollMap ranges in CardIntro drift the reveal past the sticky midpoint; consider anchoring to sticky center to match Teya-like feel.",
+    "Mobile hero typography uses viewport-relative clamp without a wrapper padding, causing overflow at 390px. Add px-4/overflow-hidden on the hero container."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100% (health + leads POST)", "frontend": "~95% (all testids/anim/VI/nav pass; 1 real mobile overflow + 2 minor UX/testability issues)"},
+  "test_credentials": "N/A – public site",
+  "seed_data_creation": "Created TEST_iter2 lead via POST /api/leads (id 60de5ebb-3906-413b-a94d-b14d90601ba6). Not cleaned – suggest main agent purge TEST_* leads.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All new section testids exist on /: hero-section, hero-title (Finance, / jednoduše.), hero-subtitle, hero-cta (external simplybook link), hero-card-0/1, card-intro/gold-card, gold-intro/phone-mock/gold-intro-cta (→ /jak-pracuji), bento-grid + 9 cards + bento-expand-* + bento-dialog-* + bento-dialog-cta-* (→ /kontakt), app-section/app-phone/app-pill-0-1/app-card-0-2/app-goals/app-family/app-mode-toggle/app-mode-0-1, testimonials-section/testimonial-0-2/testimonials-note, calculators-preview + calc-tab-*. Removed sections not present on '/'. VI: Tài chính,/thật đơn giản.; Gặp kế hoạch / cho cuộc sống của bạn.; Trực tiếp/Online; Đừng tin lời tôi. Only real bug is mobile hero overflow (~14px).",
+  "rca of the issue": "Mobile hero overflow: hero-title uses text-[clamp(40px,5vw,84px)] font-script (italic, wide glyph). At 390px viewport the minimum 40px font-size for 'jednoduše.' renders ~404px wide, exceeding viewport. Fix: reduce clamp min (~28-32px) or wrap in a container with px-4 + overflow-hidden."
+}
