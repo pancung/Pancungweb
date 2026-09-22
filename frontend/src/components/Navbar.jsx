@@ -74,7 +74,7 @@ export default function Navbar() {
             >
               {t.nav.products}<ChevronDown size={14} className={`transition-transform ${prodOpen ? "rotate-180" : ""}`} />
             </button>
-            <a href="/#system" className={`inline-flex h-10 items-center rounded-[12px] px-4 text-[14px] font-medium transition-colors ${dark ? "text-white/85 hover:bg-white/10" : "text-[#1C2418]/80 hover:bg-black/5"}`} data-testid="nav-packages">{t.nav.packages}</a>
+            <Link to="/jak-pracuji" className={`inline-flex h-10 items-center rounded-[12px] px-4 text-[14px] font-medium transition-colors ${dark ? "text-white/85 hover:bg-white/10" : "text-[#1C2418]/80 hover:bg-black/5"}`} data-testid="nav-packages">{t.nav.packages}</Link>
             <Link to="/kalkulacky" className={`inline-flex h-10 items-center rounded-[12px] px-4 text-[14px] font-medium transition-colors ${dark ? "text-white/85 hover:bg-white/10" : "text-[#1C2418]/80 hover:bg-black/5"}`} data-testid="nav-videos">{t.nav.videos}</Link>
 
             <AnimatePresence>
@@ -147,7 +147,7 @@ export default function Navbar() {
                 );
               })}
               <div className="my-3 h-px bg-white/10" />
-              <a href="/#system" onClick={() => setOpen(false)} className="py-2 text-[18px] font-medium">{t.nav.packages}</a>
+              <Link to="/jak-pracuji" className="py-2 text-[18px] font-medium">{t.nav.packages}</Link>
               <Link to="/kalkulacky" className="py-2 text-[18px] font-medium">{t.nav.videos}</Link>
               <a href={links.booking} target="_blank" rel="noreferrer" className="py-2 text-[18px] font-medium">{t.nav.login}</a>
               <div className="my-3 h-px bg-white/10" />

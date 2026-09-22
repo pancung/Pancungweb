@@ -4,7 +4,7 @@
 export const images = {
   // Hero background – Pan Čung portrait (wide composite, subject on the right). Replace `heroVideo` with an .mp4 URL to use video instead.
   hero: "/images/pan-cung-hero-wide.jpg",
-  heroVideo: null,
+  heroVideo: "/videos/hero.mp4",
   advisor: "/images/pan-cung-portrait.jpg",
   advisorAvatar: "/images/pan-cung-avatar.jpg",
   family: "https://images.unsplash.com/photo-1586865972793-c07ba4785d85?auto=format&fit=crop&w=1600&q=80",

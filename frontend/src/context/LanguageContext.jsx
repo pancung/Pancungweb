@@ -2,10 +2,11 @@ import React, { createContext, useContext, useEffect, useMemo, useState } from "
 import cs from "../data/cs";
 import vi from "../data/vi";
 import finance from "../data/finance";
+import teya from "../data/teya";
 
 const LANG_KEY = "tcat_lang";
-// Finance content overrides/extends the base dictionaries
-const dictionaries = { cs: { ...cs, ...finance.cs }, vi: { ...vi, ...finance.vi } };
+// Finance + Teya-style content overrides/extends the base dictionaries
+const dictionaries = { cs: { ...cs, ...finance.cs, ...teya.cs }, vi: { ...vi, ...finance.vi, ...teya.vi } };
 
 const LanguageContext = createContext({ lang: "cs", setLang: () => {}, t: cs });
 

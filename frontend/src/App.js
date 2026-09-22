@@ -8,6 +8,7 @@ import ProductPage from "./pages/ProductPage";
 import PackagesPage from "./pages/PackagesPage";
 import ContactPage from "./pages/ContactPage";
 import CalculatorsPage from "./pages/CalculatorsPage";
+import JakPracujiPage from "./pages/JakPracujiPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/balicky" element={<PackagesPage />} />
             <Route path="/kontakt" element={<ContactPage />} />
             <Route path="/kalkulacky" element={<CalculatorsPage />} />
+            <Route path="/jak-pracuji" element={<JakPracujiPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>

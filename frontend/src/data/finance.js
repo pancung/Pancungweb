@@ -12,8 +12,8 @@ const cs = {
     close: "Zavřít",
     language: "Jazyk",
     productMenu: [
-      { title: "Finanční plán", desc: "Kompletní strategie vašich financí", to: "/#system", icon: "Network" },
-      { title: "Investice", desc: "Dlouhodobé budování majetku", to: "/#majetek", icon: "TrendingUp" },
+      { title: "Finanční plán", desc: "Kompletní strategie vašich financí", to: "/jak-pracuji#system", icon: "Network" },
+      { title: "Investice", desc: "Dlouhodobé budování majetku", to: "/jak-pracuji#majetek", icon: "TrendingUp" },
       { title: "Hypotéky", desc: "Chytré financování vlastního i investičního bydlení", to: "/#sluzby", icon: "Home" },
       { title: "Ochrana", desc: "Ochrana příjmu, rodiny a majetku", to: "/zivotni-pojisteni", icon: "ShieldCheck" },
     ],
@@ -58,8 +58,8 @@ const cs = {
     title: "Čtyři pilíře vašich financí",
     subtitle: "Jeden plán, který drží pohromadě cashflow, ochranu, bydlení i investice.",
     items: [
-      { id: "plan", title: "Finanční plán", desc: "Kompletní strategie vašich financí. Zjistíme, kde jste dnes, kam chcete dojít a co pro to udělat.", to: "/#system", viz: "nodes" },
-      { id: "invest", title: "Investice", desc: "Dlouhodobé budování majetku pravidelným investováním – ETF, fondy, nemovitosti.", to: "/#majetek", viz: "growth" },
+      { id: "plan", title: "Finanční plán", desc: "Kompletní strategie vašich financí. Zjistíme, kde jste dnes, kam chcete dojít a co pro to udělat.", to: "/jak-pracuji#system", viz: "nodes" },
+      { id: "invest", title: "Investice", desc: "Dlouhodobé budování majetku pravidelným investováním – ETF, fondy, nemovitosti.", to: "/jak-pracuji#majetek", viz: "growth" },
       { id: "mortgage", title: "Hypotéky", desc: "Chytré financování vlastního i investičního bydlení. Porovnání bank a nastavení splátky, která vás nezadusí.", to: "/kontakt", viz: "mortgage" },
       { id: "protect", title: "Ochrana", desc: "Ochrana příjmu, rodiny a majetku. Jen tolik pojištění, kolik dává smysl – ani o korunu víc.", to: "/zivotni-pojisteni", viz: "shield" },
     ],
@@ -210,9 +210,9 @@ const cs = {
   },
   footer: {
     cols: [
-      { title: "Služby", links: [{ t: "Finanční plán", to: "/#system" }, { t: "Investice", to: "/#majetek" }, { t: "Hypotéky", to: "/#sluzby" }, { t: "Ochrana příjmu a rodiny", to: "/zivotni-pojisteni" }, { t: "Balíčky ochrany", to: "/balicky" }] },
+      { title: "Služby", links: [{ t: "Finanční plán", to: "/jak-pracuji#system" }, { t: "Investice", to: "/jak-pracuji#majetek" }, { t: "Hypotéky", to: "/#sluzby" }, { t: "Ochrana příjmu a rodiny", to: "/zivotni-pojisteni" }, { t: "Balíčky ochrany", to: "/balicky" }] },
       { title: "Nástroje", links: [{ t: "Investiční kalkulačka", to: "/kalkulacky?k=invest" }, { t: "Hypoteční kalkulačka", to: "/kalkulacky?k=mortgage" }, { t: "FIRE kalkulačka", to: "/kalkulacky?k=fire" }, { t: "Finanční zdraví", to: "/kalkulacky?k=health" }, { t: "Finanční kvíz", to: "https://kviz.pancung.cz/", ext: true }] },
-      { title: "Pan Čung", links: [{ t: "Jak pracuji", to: "/#system" }, { t: "O mně", to: "/#o-mne" }, { t: "Případová studie", to: "/#pripadova-studie" }, { t: "Videa", to: "/#obsah" }] },
+      { title: "Pan Čung", links: [{ t: "Jak pracuji", to: "/jak-pracuji" }, { t: "O mně", to: "/jak-pracuji#o-mne" }, { t: "Případová studie", to: "/#pripadova-studie" }, { t: "Videa", to: "/jak-pracuji#obsah" }] },
     ],
     support: { title: "Podpora", hours: "24/7", chat: "Live chat", zalo: "Zalo", whatsapp: "WhatsApp", email: "podpora@taichinhantam.cz", rows: [["PO–PÁ", "8:00 – 17:00"], ["SO", "9:00 – 17:00"]], phone: "+420 000 000 000" },
     sales: { title: "Konzultace", rows: [["PO–PÁ", "9:00 – 17:00"]], email: "info@taichinhantam.cz", phone: "+420 000 000 000" },
@@ -233,8 +233,8 @@ const vi = {
     close: "Đóng",
     language: "Ngôn ngữ",
     productMenu: [
-      { title: "Kế hoạch tài chính", desc: "Chiến lược toàn diện cho tài chính của bạn", to: "/#system", icon: "Network" },
-      { title: "Đầu tư", desc: "Xây dựng tài sản dài hạn", to: "/#majetek", icon: "TrendingUp" },
+      { title: "Kế hoạch tài chính", desc: "Chiến lược toàn diện cho tài chính của bạn", to: "/jak-pracuji#system", icon: "Network" },
+      { title: "Đầu tư", desc: "Xây dựng tài sản dài hạn", to: "/jak-pracuji#majetek", icon: "TrendingUp" },
       { title: "Vay mua nhà", desc: "Tài trợ thông minh cho nhà ở và bất động sản đầu tư", to: "/#sluzby", icon: "Home" },
       { title: "Bảo vệ", desc: "Bảo vệ thu nhập, gia đình và tài sản", to: "/zivotni-pojisteni", icon: "ShieldCheck" },
     ],
@@ -279,8 +279,8 @@ const vi = {
     title: "Bốn trụ cột tài chính của bạn",
     subtitle: "Một kế hoạch gắn kết dòng tiền, bảo vệ, nhà ở và đầu tư.",
     items: [
-      { id: "plan", title: "Kế hoạch tài chính", desc: "Chiến lược toàn diện. Xác định bạn đang ở đâu, muốn đi đến đâu và cần làm gì.", to: "/#system", viz: "nodes" },
-      { id: "invest", title: "Đầu tư", desc: "Xây dựng tài sản dài hạn bằng đầu tư định kỳ – ETF, quỹ, bất động sản.", to: "/#majetek", viz: "growth" },
+      { id: "plan", title: "Kế hoạch tài chính", desc: "Chiến lược toàn diện. Xác định bạn đang ở đâu, muốn đi đến đâu và cần làm gì.", to: "/jak-pracuji#system", viz: "nodes" },
+      { id: "invest", title: "Đầu tư", desc: "Xây dựng tài sản dài hạn bằng đầu tư định kỳ – ETF, quỹ, bất động sản.", to: "/jak-pracuji#majetek", viz: "growth" },
       { id: "mortgage", title: "Vay mua nhà", desc: "Tài trợ thông minh cho nhà ở và bất động sản đầu tư. So sánh ngân hàng, khoản trả phù hợp.", to: "/kontakt", viz: "mortgage" },
       { id: "protect", title: "Bảo vệ", desc: "Bảo vệ thu nhập, gia đình và tài sản. Chỉ đủ bảo hiểm cần thiết – không thừa một đồng.", to: "/zivotni-pojisteni", viz: "shield" },
     ],
@@ -431,9 +431,9 @@ const vi = {
   },
   footer: {
     cols: [
-      { title: "Dịch vụ", links: [{ t: "Kế hoạch tài chính", to: "/#system" }, { t: "Đầu tư", to: "/#majetek" }, { t: "Vay mua nhà", to: "/#sluzby" }, { t: "Bảo vệ thu nhập & gia đình", to: "/zivotni-pojisteni" }, { t: "Các gói bảo vệ", to: "/balicky" }] },
+      { title: "Dịch vụ", links: [{ t: "Kế hoạch tài chính", to: "/jak-pracuji#system" }, { t: "Đầu tư", to: "/jak-pracuji#majetek" }, { t: "Vay mua nhà", to: "/#sluzby" }, { t: "Bảo vệ thu nhập & gia đình", to: "/zivotni-pojisteni" }, { t: "Các gói bảo vệ", to: "/balicky" }] },
       { title: "Công cụ", links: [{ t: "Công cụ đầu tư", to: "/kalkulacky?k=invest" }, { t: "Công cụ vay mua nhà", to: "/kalkulacky?k=mortgage" }, { t: "Công cụ FIRE", to: "/kalkulacky?k=fire" }, { t: "Sức khỏe tài chính", to: "/kalkulacky?k=health" }, { t: "Bài kiểm tra tài chính", to: "https://kviz.pancung.cz/", ext: true }] },
-      { title: "Pan Čung", links: [{ t: "Cách tôi làm việc", to: "/#system" }, { t: "Về tôi", to: "/#o-mne" }, { t: "Nghiên cứu tình huống", to: "/#pripadova-studie" }, { t: "Video", to: "/#obsah" }] },
+      { title: "Pan Čung", links: [{ t: "Cách tôi làm việc", to: "/jak-pracuji" }, { t: "Về tôi", to: "/jak-pracuji#o-mne" }, { t: "Nghiên cứu tình huống", to: "/#pripadova-studie" }, { t: "Video", to: "/jak-pracuji#obsah" }] },
     ],
     support: { title: "Hỗ trợ", hours: "24/7", chat: "Live chat", zalo: "Zalo", whatsapp: "WhatsApp", email: "podpora@taichinhantam.cz", rows: [["T2–T6", "8:00 – 17:00"], ["T7", "9:00 – 17:00"]], phone: "+420 000 000 000" },
     sales: { title: "Tư vấn", rows: [["T2–T6", "9:00 – 17:00"]], email: "info@taichinhantam.cz", phone: "+420 000 000 000" },
