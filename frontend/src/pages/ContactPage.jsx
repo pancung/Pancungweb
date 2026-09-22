@@ -24,7 +24,7 @@ export default function ContactPage() {
     name: "", phone: "", email: "", city: "",
     interest: state?.interest || "",
     langPref: lang === "vi" ? c.langs[0] : c.langs[1],
-    message: state?.monthly ? `${c.interests[1]} · ${formatCzk(state.monthly)}/m, ${state.years} y, ${state.age}` : "",
+    message: state?.message || (state?.monthly ? `${c.interests[1]} · ${formatCzk(state.monthly)}/m, ${state.years} y, ${state.age}` : ""),
   });
   const [done, setDone] = useState(false);
   const [sending, setSending] = useState(false);
@@ -43,11 +43,11 @@ export default function ContactPage() {
     setSending(true);
     try {
       await createLead({
-        source: state?.packageId ? "package" : "contact",
+        source: state?.packageId ? "package" : state?.calc ? "calculator" : "contact",
         lang,
         ...form,
         packageId: state?.packageId || null,
-        calc: state?.monthly ? { age: state.age, monthly: state.monthly, years: state.years } : null,
+        calc: state?.calc || (state?.monthly ? { age: state.age, monthly: state.monthly, years: state.years } : null),
       });
       toast.success(c.success);
       setDone(true);

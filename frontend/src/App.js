@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import ProductPage from "./pages/ProductPage";
 import PackagesPage from "./pages/PackagesPage";
 import ContactPage from "./pages/ContactPage";
+import CalculatorsPage from "./pages/CalculatorsPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/investicni-pojisteni" element={<ProductPage type="invest" />} />
             <Route path="/balicky" element={<PackagesPage />} />
             <Route path="/kontakt" element={<ContactPage />} />
+            <Route path="/kalkulacky" element={<CalculatorsPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>

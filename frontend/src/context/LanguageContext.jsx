@@ -1,9 +1,11 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 import cs from "../data/cs";
 import vi from "../data/vi";
+import finance from "../data/finance";
 
 const LANG_KEY = "tcat_lang";
-const dictionaries = { cs, vi };
+// Finance content overrides/extends the base dictionaries
+const dictionaries = { cs: { ...cs, ...finance.cs }, vi: { ...vi, ...finance.vi } };
 
 const LanguageContext = createContext({ lang: "cs", setLang: () => {}, t: cs });
 

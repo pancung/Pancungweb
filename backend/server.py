@@ -27,7 +27,7 @@ api_router = APIRouter(prefix="/api")
 
 
 # ---------- Models ----------
-LeadSource = Literal["contact", "chat", "package"]
+LeadSource = Literal["contact", "chat", "package", "calculator"]
 LeadStatus = Literal["new", "contacted", "closed"]
 
 
@@ -36,6 +36,8 @@ class CalcInput(BaseModel):
     age: Optional[int] = None
     monthly: Optional[int] = None
     years: Optional[int] = None
+    type: Optional[str] = Field(default=None, max_length=40)
+    summary: Optional[str] = Field(default=None, max_length=300)
 
 
 class LeadCreate(BaseModel):
