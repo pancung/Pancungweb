@@ -136,6 +136,11 @@ const cs = {
     pageSubtitle: "Čtyři interaktivní nástroje – investice, hypotéka, finanční nezávislost a zdraví vašich financí. Všechno počítáme přímo tady, bez přesměrování.",
     open: "Spočítat",
     active: "AKTIVNÍ",
+    homeLabel: "SPOČÍTEJTE SI",
+    homeTitle: "Kolik vám plán může",
+    homeAccent: "přinést?",
+    homeSubtitle: "Vyzkoušejte si čísla sami – a pak je společně proměníme v plán, který drží.",
+    all: "Všechny kalkulačky",
     items: [
       { id: "invest", title: "INVESTIČNÍ KALKULAČKA", desc: "Kolik může váš majetek vyrůst?", viz: "line" },
       { id: "mortgage", title: "HYPOTEČNÍ KALKULAČKA", desc: "Kolik vás bude stát vlastní bydlení?", viz: "mortgage" },
@@ -212,7 +217,7 @@ const cs = {
     cols: [
       { title: "Služby", links: [{ t: "Finanční plán", to: "/jak-pracuji#system" }, { t: "Investice", to: "/jak-pracuji#majetek" }, { t: "Hypotéky", to: "/#sluzby" }, { t: "Ochrana příjmu a rodiny", to: "/zivotni-pojisteni" }, { t: "Balíčky ochrany", to: "/balicky" }] },
       { title: "Nástroje", links: [{ t: "Investiční kalkulačka", to: "/kalkulacky?k=invest" }, { t: "Hypoteční kalkulačka", to: "/kalkulacky?k=mortgage" }, { t: "FIRE kalkulačka", to: "/kalkulacky?k=fire" }, { t: "Finanční zdraví", to: "/kalkulacky?k=health" }, { t: "Finanční kvíz", to: "https://kviz.pancung.cz/", ext: true }] },
-      { title: "Pan Čung", links: [{ t: "Jak pracuji", to: "/jak-pracuji" }, { t: "O mně", to: "/jak-pracuji#o-mne" }, { t: "Případová studie", to: "/#pripadova-studie" }, { t: "Videa", to: "/jak-pracuji#obsah" }] },
+      { title: "Pan Čung", links: [{ t: "Jak pracuji", to: "/jak-pracuji" }, { t: "O mně", to: "/#o-mne" }, { t: "Případová studie", to: "/#pripadova-studie" }, { t: "Videa", to: "/jak-pracuji#obsah" }] },
     ],
     support: { title: "Podpora", hours: "24/7", chat: "Live chat", zalo: "Zalo", whatsapp: "WhatsApp", email: "podpora@taichinhantam.cz", rows: [["PO–PÁ", "8:00 – 17:00"], ["SO", "9:00 – 17:00"]], phone: "+420 000 000 000" },
     sales: { title: "Konzultace", rows: [["PO–PÁ", "9:00 – 17:00"]], email: "info@taichinhantam.cz", phone: "+420 000 000 000" },
@@ -357,6 +362,11 @@ const vi = {
     pageSubtitle: "Bốn công cụ tương tác – đầu tư, vay mua nhà, tự do tài chính và sức khỏe tài chính. Tính ngay trên trang web, không chuyển hướng.",
     open: "Tính ngay",
     active: "ĐANG MỞ",
+    homeLabel: "TỰ TÍNH THỬ",
+    homeTitle: "Kế hoạch có thể mang lại",
+    homeAccent: "bao nhiêu?",
+    homeSubtitle: "Hãy tự thử với con số của bạn – rồi chúng ta cùng biến nó thành kế hoạch bền vững.",
+    all: "Tất cả công cụ tính",
     items: [
       { id: "invest", title: "CÔNG CỤ ĐẦU TƯ", desc: "Tài sản của bạn có thể tăng bao nhiêu?", viz: "line" },
       { id: "mortgage", title: "CÔNG CỤ VAY MUA NHÀ", desc: "Nhà riêng sẽ tốn bao nhiêu?", viz: "mortgage" },
@@ -433,7 +443,7 @@ const vi = {
     cols: [
       { title: "Dịch vụ", links: [{ t: "Kế hoạch tài chính", to: "/jak-pracuji#system" }, { t: "Đầu tư", to: "/jak-pracuji#majetek" }, { t: "Vay mua nhà", to: "/#sluzby" }, { t: "Bảo vệ thu nhập & gia đình", to: "/zivotni-pojisteni" }, { t: "Các gói bảo vệ", to: "/balicky" }] },
       { title: "Công cụ", links: [{ t: "Công cụ đầu tư", to: "/kalkulacky?k=invest" }, { t: "Công cụ vay mua nhà", to: "/kalkulacky?k=mortgage" }, { t: "Công cụ FIRE", to: "/kalkulacky?k=fire" }, { t: "Sức khỏe tài chính", to: "/kalkulacky?k=health" }, { t: "Bài kiểm tra tài chính", to: "https://kviz.pancung.cz/", ext: true }] },
-      { title: "Pan Čung", links: [{ t: "Cách tôi làm việc", to: "/jak-pracuji" }, { t: "Về tôi", to: "/jak-pracuji#o-mne" }, { t: "Nghiên cứu tình huống", to: "/#pripadova-studie" }, { t: "Video", to: "/jak-pracuji#obsah" }] },
+      { title: "Pan Čung", links: [{ t: "Cách tôi làm việc", to: "/jak-pracuji" }, { t: "Về tôi", to: "/#o-mne" }, { t: "Nghiên cứu tình huống", to: "/#pripadova-studie" }, { t: "Video", to: "/jak-pracuji#obsah" }] },
     ],
     support: { title: "Hỗ trợ", hours: "24/7", chat: "Live chat", zalo: "Zalo", whatsapp: "WhatsApp", email: "podpora@taichinhantam.cz", rows: [["T2–T6", "8:00 – 17:00"], ["T7", "9:00 – 17:00"]], phone: "+420 000 000 000" },
     sales: { title: "Tư vấn", rows: [["T2–T6", "9:00 – 17:00"]], email: "info@taichinhantam.cz", phone: "+420 000 000 000" },

@@ -5,7 +5,7 @@ import { useLang } from "../../context/LanguageContext";
 import { Reveal } from "../IntroSection";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../ui/dialog";
 
-export function BentoCard({ id, data, children, className = "", delay = 0, badge, wide = false }) {
+export function BentoCard({ id, data, children, className = "", delay = 0, badge, wide = false, descBottom = false }) {
   const { t } = useLang();
   const b = t.bento;
   const [open, setOpen] = useState(false);
@@ -21,9 +21,10 @@ export function BentoCard({ id, data, children, className = "", delay = 0, badge
             {badge && <span className="rounded-full bg-[#D9B44A] px-2 py-0.5 text-[10px] font-semibold text-[#1C2418]">{badge}</span>}
           </div>
           <h3 className="mt-3 max-w-[420px] text-[26px] font-normal leading-[1.12] tracking-[-0.02em] text-[#1C2418] md:text-[30px]">{data.title}</h3>
-          <p className="mt-3 max-w-[460px] text-[14.5px] leading-relaxed text-[#1C2418]/65">{data.desc}</p>
+          {!descBottom && <p className="mt-3 max-w-[460px] text-[14.5px] leading-relaxed text-[#1C2418]/65">{data.desc}</p>}
         </div>
         <div className={`relative flex flex-col ${wide ? "mt-8 md:mt-0" : "mt-6 flex-1"}`}>{children}</div>
+        {descBottom && <p className="mt-6 max-w-[460px] text-[14.5px] leading-relaxed text-[#1C2418]/65">{data.desc}</p>}
       </article>
 
       <Dialog open={open} onOpenChange={setOpen}>

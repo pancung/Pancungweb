@@ -43,16 +43,30 @@ function TabCard({ item, active, onClick, openLabel, activeLabel }) {
   );
 }
 
-export default function CalculatorHub({ tab, onTab }) {
+export default function CalculatorHub({ tab, onTab, compact = false }) {
   const { t } = useLang();
   const c = t.calculators;
   const Active = CALCS[tab] || InvestCalc;
   return (
     <div data-testid="calculator-hub">
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        {c.items.map((it) => <TabCard key={it.id} item={it} active={tab === it.id} onClick={() => onTab(it.id)} openLabel={c.open} activeLabel={c.active} />)}
-      </div>
-      <div className="mt-8">
+      {compact ? (
+        <div className="mx-auto flex max-w-full flex-wrap justify-center gap-1.5 rounded-full bg-white p-1.5 ring-1 ring-black/5 sm:inline-flex sm:flex-nowrap" role="tablist">
+          {c.items.map((it) => {
+            const on = tab === it.id;
+            return (
+              <button key={it.id} type="button" role="tab" aria-selected={on} onClick={() => onTab(it.id)} data-testid={`calc-tab-${it.id}`} className={`relative rounded-full px-4 py-2.5 text-[12.5px] font-semibold tracking-[0.04em] transition-colors md:px-5 ${on ? "text-[#1C2418]" : "text-[#1C2418]/55 hover:text-[#1C2418]"}`}>
+                {on && <motion.span layoutId="calc-compact-pill" className="absolute inset-0 z-0 rounded-full bg-[#D9B44A]" transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
+                <span className="relative z-10">{it.title.charAt(0) + it.title.slice(1).toLowerCase()}</span>
+              </button>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {c.items.map((it) => <TabCard key={it.id} item={it} active={tab === it.id} onClick={() => onTab(it.id)} openLabel={c.open} activeLabel={c.active} />)}
+        </div>
+      )}
+      <div className={compact ? "mt-8 md:mt-10" : "mt-8"}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div key={tab} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}>
             <Active />

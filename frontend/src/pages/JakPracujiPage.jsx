@@ -3,8 +3,6 @@ import { useLang } from "../context/LanguageContext";
 import { Reveal } from "../components/IntroSection";
 import { ScribbleWord } from "../components/CalculatorSection";
 import ServiceCards from "../components/ServiceCards";
-import NumbersStrip from "../components/NumbersStrip";
-import AboutSection from "../components/AboutSection";
 import WealthSection from "../components/WealthSection";
 import JourneySection from "../components/JourneySection";
 import SystemSection from "../components/SystemSection";
@@ -27,8 +25,6 @@ export default function JakPracujiPage() {
         </div>
       </section>
       <ServiceCards />
-      <NumbersStrip />
-      <AboutSection />
       <WealthSection />
       <JourneySection />
       <SystemSection />
