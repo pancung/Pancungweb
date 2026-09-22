@@ -55,7 +55,7 @@ export default function FireCalc() {
               {fireAgeText !== null ? (
                 <motion.div key={`ok-${fireAgeText}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }}>
                   <div className="text-[12px] text-white/55">{c.fireAge}</div>
-                  <div className="text-[34px] font-semibold leading-none tracking-tight" data-testid="fire-age">{fireAgeText} <span className="text-[16px] font-medium text-white/60">{c.yearsOld}</span></div>
+                  <div className="text-[34px] font-semibold leading-none tracking-tight" data-testid="fire-age-result">{fireAgeText} <span className="text-[16px] font-medium text-white/60">{c.yearsOld}</span></div>
                   <div className="mt-1 text-[13px] text-[#D9B44A]">{c.inYears.replace("{n}", yearsTo)}</div>
                 </motion.div>
               ) : (

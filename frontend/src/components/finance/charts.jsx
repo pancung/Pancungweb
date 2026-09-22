@@ -70,6 +70,9 @@ export function LineChart({
   };
 
   const drawn = inView || reduce;
+  const mountedRef = useRef(false);
+  useEffect(() => { mountedRef.current = true; }, []);
+  const first = !mountedRef.current;
 
   return (
     <div ref={ref} className={`relative ${className}`} onMouseMove={onMove} onMouseLeave={() => setHi(null)} onTouchStart={(e) => onMove(e.touches[0] ? { currentTarget: e.currentTarget, clientX: e.touches[0].clientX } : e)}>
@@ -90,10 +93,11 @@ export function LineChart({
             <text x={pad.left + 4} y={pad.top + innerH - (refLine.value / max) * innerH - 6} textAnchor="start" fontSize="11" fontWeight="600" fill={stroke} fontFamily="Figtree, sans-serif">{refLine.label}</text>
           </g>
         )}
-        {area && <motion.path d={areaD} fill={`url(#${id}-fill)`} initial={{ opacity: 0 }} animate={{ opacity: drawn ? 1 : 0, d: areaD }} transition={{ opacity: { duration: 1, delay: 0.8 }, d: { duration: 0.6, ease: "easeOut" } }} />}
+        {area && <motion.path key={`area-${n}`} d={areaD} fill={`url(#${id}-fill)`} initial={first ? { opacity: 0, d: areaD } : false} animate={{ opacity: drawn ? 1 : 0, d: areaD }} transition={{ opacity: { duration: 1, delay: 0.8 }, d: { duration: 0.6, ease: "easeOut" } }} />}
         <motion.path
+          key={`line-${n}`}
           d={d} fill="none" stroke={stroke} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round"
-          initial={{ pathLength: 0, opacity: 0 }}
+          initial={first ? { pathLength: 0, opacity: 0, d } : false}
           animate={{ pathLength: drawn ? 1 : 0, opacity: drawn ? 1 : 0, d }}
           transition={{ pathLength: { duration: reduce ? 0 : 1.6, ease: "easeInOut" }, opacity: { duration: 0.3 }, d: { duration: 0.6, ease: "easeOut" } }}
         />

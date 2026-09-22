@@ -1,0 +1,47 @@
+{
+  "summary": "End-to-end testing of Pan Čung calculators iteration: hero floating cards (2 only), numbers strip (2 numbers), interactive calculators (invest/mortgage/fire/health) on homepage and /kalkulacky page, contact prefill, VI language, mobile responsive, other pages, and backend /api/leads with source='calculator'. All acceptance criteria met with 2 minor issues.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "FireCalc", "issue": "Duplicate data-testid='fire-age' used on both the age Slider input AND the result <div> showing FIRE age. page.locator('[data-testid=fire-age]') returns 2 elements which breaks testability and violates unique-id convention.", "selector": "[data-testid=fire-age]", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Calculator area (LineChart)", "issues": ["Console errors: <path> attribute d: Expected moveto path command ('M' or 'm'), 'undefined'. Multiple occurrences (12 during a normal session). Likely LineChart/Sparkline receiving empty/undefined data on initial render before framer-motion animate value stabilizes; the animate={{ d }} prop is 'undefined' on first render. Non-blocking (chart visually renders) but pollutes console."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "Rename either the FireCalc slider testId or the result testId (e.g. keep slider as 'fire-age-input' and result as 'fire-age', or slider 'fire-age' and result 'fire-age-result') to make data-testid unique.",
+    "In charts.jsx LineChart, guard motion.path animate={{ d }} against undefined during first render (e.g. only pass d in animate when pts is non-empty), or ensure InvestCalc/FireCalc initial data array is never length 0."
+  ],
+  "critical_code_review_comments": [
+    "data-testid uniqueness — Playwright convention requires each testid to identify a single element; FireCalc violates this.",
+    "LineChart accepts data without validation; when parents pass an empty array, `pts[n-1]` is undefined causing SVG path warnings. Add early return / default when data.length===0.",
+    "server.py is compact and clean; ObjectId excluded via projection {_id:0} in list/get endpoints — good."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100% (4/4 pytest)", "frontend": "~95% (all functional criteria met, 1 testid duplication + benign console warnings)"},
+  "test_credentials": "N/A (public site)",
+  "seed_data_creation": "Created and cleaned up TEST_CalcUser lead via /api/leads POST/DELETE.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All calculator math verified against expected values in review request (invest 3 008 507 Kč, mortgage 25 475/4 370 958 Kč, fire target 12 M Kč, health 58→68). /kalkulacky?k=<tab> works and clicking tabs updates URL. CTA prefills textarea correctly. Mobile 390px has zero horizontal overflow on / and /kalkulacky. VI translation renders labels correctly (hero-card-0='7 năm kinh nghiệm', hero-card-1='459+ khách hàng hài lòng' — numbers intentionally differ from CS which is 8 / 500+).",
+  "detailed_verifications": {
+    "hero_cards": "hero-card-0='8 | let zkušeností', hero-card-1='500+ | spokojených klientů', hero-card-2 absent. No 'ILUSTRATIVNÍ DATA' / '4,82 M' / '+12,4' / '68 %' cards in hero.",
+    "numbers_strip": "number-0='8', number-1='500+', number-2 absent, no 'X,X mld' anywhere.",
+    "invest_default": "3 008 507 Kč (match).",
+    "mortgage_default": "payment 25 475 Kč, interest 4 370 958 Kč (match).",
+    "fire_default": "target 12 000 000 Kč (match).",
+    "health_default": "score 58, level 'Stabilní'; toggle insured -> 68 (match).",
+    "route_k_param": "/kalkulacky?k=mortgage opens mortgage tab active; clicking fire updates URL to ?k=fire; ?k=xyz falls back to invest.",
+    "cta_prefill": "textarea prefilled 'Investiční kalkulačka: 5 000 Kč / měsíc · 20 let · 7 % p.a. → 3 008 507 Kč'.",
+    "navbar": "nav-videos->/kalkulacky, nav-packages->/#system, cta-secondary->/kalkulacky.",
+    "mobile_overflow": "0 px on / and /kalkulacky at 390 wide.",
+    "other_pages": "/balicky, /kontakt, /zivotni-pojisteni all load OK.",
+    "backend": "GET /api/health 200, POST /api/leads {source:'calculator', calc:{...}} 201, GET /api/leads/{id} 200, invalid source rejected 422."
+  }
+}
