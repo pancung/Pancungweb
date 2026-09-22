@@ -11,6 +11,7 @@ import AdvisorFlow from "./bento/AdvisorFlow";
 import ProtectMock from "./bento/ProtectMock";
 import ConsultMock from "./bento/ConsultMock";
 import ReserveMock from "./bento/ReserveMock";
+import { GoldRulesCard } from "./GoldRulesCard";
 
 // part="top": first bento row (like Teya: MONEY / ECOMMERCE / EPOS). part="bottom": the rest, starting
 // with the panel where the 3D card lands (Teya: CARD panel).
@@ -31,7 +32,7 @@ export default function BentoGrid({ part = "top" }) {
   return (
     <section className="bg-white pb-6 md:pb-10" data-testid="bento-grid-bottom">
       <div className="container-x grid gap-4 md:grid-cols-3">
-        <BentoCard id="rules" data={b.rules} className="md:col-span-3" descBottom><RulesPanel /></BentoCard>
+        <BentoCard id="rules" data={b.rules} className="md:col-span-3" descBottom visual={<GoldRulesCard />}><RulesPanel /></BentoCard>
 
         <BentoCard id="mortgage" data={b.mortgage} className="md:col-span-2"><MortgageCompare data={b.mortgage} /></BentoCard>
         <BentoCard id="advisor" data={b.advisor} delay={0.08}><AdvisorFlow data={b.advisor} /></BentoCard>
