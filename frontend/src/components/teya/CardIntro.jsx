@@ -42,8 +42,8 @@ export default function CardIntro() {
 
     const center = b.top + b.height / 2;
     const p = clamp01((0.53 * vh - center) / vh);
-    const slot = document.getElementById("gold-card-landing");
-    const dist = slot ? slot.getBoundingClientRect().top + slot.getBoundingClientRect().height / 2 - center : 0;
+    const slot = document.getElementById("gold-card-landing")?.getBoundingClientRect();
+    const dist = slot ? slot.top + slot.height / 2 - center : 0;
     y.set(transform(p, T, POS) * dist);
     rotateY.set(transform(p, T, ROT));
   };

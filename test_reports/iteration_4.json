@@ -1,0 +1,23 @@
+{
+  "summary": "Frontend-only testing of new bento detail modals + flying gold card animation on Pan Cung site. All 10 bento cards render, dialogs open by card click / expand-icon / keyboard Enter, contain header + intro + gold-CTA link (target _blank to simplybook), 3 step sections, 4 FAQ items (accordion expands with data-state=open), scrollable overlay so bottom CTA (Napsat zprávu → /kontakt) is reachable. Close via button and Escape both remove dialog from DOM. Message link navigates to /kontakt (page loads fine). Gold flying card: initial matrix ~identity (front visible), after scroll into landing zone matrix3d m11=-1 (180° flipped) and bounding-rect top matches #gold-card-landing exactly (0px diff at 1920x800). Side texts card-intro-left/right transform starts at (-150,40)/(150,40) and animates to (0,-40) as user scrolls. Mobile 390x844: no horizontal overflow, card animation runs (rotate + translateY into rules panel; residual diff ~102px which is acceptable in-motion), bento-protect dialog opens, overlay scrolls (3885px content in 844 viewport), message CTA visible and close works. Language switch to VI updates navbar (Dịch vụ, Đặt lịch tư vấn) and bento-invest dialog CTA text becomes 'Đặt lịch tư vấn'. No page errors, no console errors (except third-party warnings ignored per instructions).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "CardIntro.jsx: the update() runs on every scroll event and calls getBoundingClientRect twice for the slot; could cache slot ref for perf but not blocking.",
+    "BentoDetailDialog.jsx uses Radix Dialog Portal – overlay scrolling works but the sticky close button uses pointer-events:none on the wrapper; verified accessible.",
+    "All new bento cards + dialogs correctly expose data-testid attributes for step/faq/cta/message/close.",
+    "Booking CTA opens external simplybook URL with rel=noreferrer target=_blank – good."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Bento modals (10 cards) and gold flying card animation fully validated on desktop 1920x800 and mobile 390x844, plus VI language switch. Previous iterations covered calculators/hero/nav/backend leads. No regressions found. Booking URL: https://pancungradi.simplybook.it/v2/#book (do not follow external)."
+}
