@@ -58,7 +58,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 h-20 transition-colors duration-300 ${!dark && scrolled ? "bg-white/80 backdrop-blur-xl border-b border-black/5" : ""}`}
+        className={`fixed inset-x-0 top-0 z-50 h-20 transition-colors duration-300 ${scrolled ? (dark ? "max-lg:bg-[#0E120C]/80 max-lg:backdrop-blur-xl max-lg:border-b max-lg:border-white/5" : "bg-white/80 backdrop-blur-xl border-b border-black/5") : ""}`}
         data-testid="navbar"
       >
         <div className="container-x flex h-full items-center justify-between">

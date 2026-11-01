@@ -20,7 +20,7 @@ export default function BentoGrid({ part = "top" }) {
   const b = t.bento;
   if (part === "top") {
     return (
-      <section id="sluzby" className="bg-white py-4 md:py-6" data-testid="bento-grid">
+      <section id="prehled" className="bg-white py-4 md:py-6" data-testid="bento-grid">
         <div className="container-x grid gap-4 md:grid-cols-3">
           <BentoCard id="cashflow" data={b.cashflow}><CashflowStack rows={b.cashflow.rows} /></BentoCard>
           <BentoCard id="invest" data={b.invest} delay={0.08}><InvestChat chat={b.invest.chat} typing={b.invest.typing} /></BentoCard>

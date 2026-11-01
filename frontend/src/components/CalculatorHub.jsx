@@ -9,7 +9,7 @@ import FireCalc from "./calculators/FireCalc";
 import HealthCalc from "./calculators/HealthCalc";
 
 export const CALC_TABS = ["invest", "mortgage", "fire", "health"];
-const CALCS = { invest: InvestCalc, mortgage: MortgageCalc, fire: FireCalc, health: HealthCalc };
+export const CALCS = { invest: InvestCalc, mortgage: MortgageCalc, fire: FireCalc, health: HealthCalc };
 
 function Viz({ type, active }) {
   const track = active ? "rgba(255,255,255,0.12)" : undefined;

@@ -35,6 +35,23 @@ export const videoThumbs = [
   "https://images.unsplash.com/photo-1775217434748-0bd010512413?auto=format&fit=crop&w=1200&q=70",
 ];
 
+// Service landing-page media, keyed by service slug.
+// Placeholder: all four currently reuse the hero clip. Drop real files into
+// /public/videos/ and point each key at its own .mp4 (poster = still frame shown before play).
+export const serviceMedia = {
+  "financni-plan": { video: "/videos/hero.mp4", poster: "/images/pan-cung-hero-wide.jpg" },
+  investice: { video: "/videos/hero.mp4", poster: "/images/pan-cung-hero-wide.jpg" },
+  hypoteky: { video: "/videos/hero.mp4", poster: "/images/pan-cung-hero-wide.jpg" },
+  ochrana: { video: "/videos/hero.mp4", poster: "/images/pan-cung-hero-wide.jpg" },
+};
+
+// Topic funnel VSL videos (/tema/:slug). Placeholder clip until the real VSL is recorded –
+// script: /docs/vsl/<slug>.vi.md and .cs.md.
+export const funnelMedia = {
+  default: { video: "/videos/hero.mp4", poster: "/images/pan-cung-hero-wide.jpg" },
+  "prijmy-a-vydaje": { video: "/videos/hero.mp4", poster: "/images/pan-cung-hero-wide.jpg" },
+};
+
 // Hero dashboard mock numbers
 export const dashNumbers = {
   protection: 2000000,

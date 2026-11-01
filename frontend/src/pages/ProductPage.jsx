@@ -30,7 +30,7 @@ export default function ProductPage({ type }) {
             <p className="mt-7 max-w-[520px] text-[17px] leading-relaxed text-[#1C2418]/70">{p.subtitle}</p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link to="/kontakt" className="btn-lime inline-flex h-12 items-center px-6 text-[15px]" data-testid="product-cta">{p.cta}</Link>
-              <Link to={isInvest ? "/#kalkulacka" : "/balicky"} className="glass-dark inline-flex h-12 items-center rounded-[12px] px-6 text-[15px] font-medium text-[#1C2418] transition-colors hover:bg-black/10">{p.secondary}</Link>
+              <Link to={isInvest ? "/kalkulacky" : "/balicky"} className="glass-dark inline-flex h-12 items-center rounded-[12px] px-6 text-[15px] font-medium text-[#1C2418] transition-colors hover:bg-black/10">{p.secondary}</Link>
             </div>
           </Reveal>
           <Reveal delay={0.15} className="relative">

@@ -21,6 +21,7 @@ export function CookieBanner() {
 
   const decide = (v) => {
     try { localStorage.setItem(COOKIE_KEY, v); } catch { /* ignore */ }
+    window.dispatchEvent(new Event("tcat-consent")); // lets lib/track load the pixel once allowed
     setVisible(false);
   };
 
@@ -70,7 +71,7 @@ export function FloatingChat() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[65] flex flex-col items-end gap-3" data-testid="floating-chat">
+    <div className="fixed bottom-4 right-4 z-[65] flex flex-col items-end gap-3 md:bottom-6 md:right-6" data-testid="floating-chat">
       <AnimatePresence>
         {open && (
           <motion.form
@@ -95,7 +96,7 @@ export function FloatingChat() {
       </AnimatePresence>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#CFAA3D] text-[#1C2418] shadow-[0_20px_40px_-10px_rgba(217,180,74,0.5)] transition-transform hover:scale-105"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#CFAA3D] md:h-14 md:w-14 text-[#1C2418] shadow-[0_20px_40px_-10px_rgba(217,180,74,0.5)] transition-transform hover:scale-105"
         aria-label="chat"
         data-testid="chat-toggle"
       >

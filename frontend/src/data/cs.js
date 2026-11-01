@@ -97,8 +97,8 @@ const cs = {
     },
   ],
   stats: [
-    { value: "500+", label: "Spokojených klientů z vietnamské komunity" },
-    { value: "8 let", label: "Zkušeností ve finančním poradenství" },
+    { value: "600 mil. Kč", label: "Pod správou týmu" },
+    { value: "12 let", label: "Ve finančním poradenství, certifikace EFA" },
     { value: "15 min", label: "Konzultace zdarma – osobně, telefonicky nebo přes Zalo" },
   ],
   about: {
@@ -106,7 +106,7 @@ const cs = {
     title: "Vedu lidi k finanční",
     accent: "nezávislosti",
     badge: "Finanční poradce · Praha",
-    p1: "Jsem Pan Čung. Už 8 let pomáhám vietnamským rodinám a podnikatelům v Česku rozumět financím – bez cizích slov a bez tlaku. Pojištění vysvětlím tak, jak bych ho vysvětlil vlastní rodině.",
+    p1: "Jsem Pan Čung. Už 12 let pomáhám vietnamským rodinám a podnikatelům v Česku rozumět financím – bez cizích slov a bez tlaku. Pojištění vysvětlím tak, jak bych ho vysvětlil vlastní rodině.",
     p2: "Věřím, že jistota není o papírech, ale o klidu. Proto s klienty nejdřív mluvím o tom, co chtějí ochránit, a teprve potom o produktech.",
     points: ["Poradenství vietnamsky, česky i anglicky", "Nezávislý – vybírám z nabídky více pojišťoven", "Osobně v Praze, telefonicky nebo přes Zalo"],
     cta: "Rezervovat 15 min hovor zdarma",
@@ -209,7 +209,7 @@ const cs = {
   footer: {
     cols: [
       { title: "Produkty", links: [{ t: "Životní pojištění", to: "/zivotni-pojisteni" }, { t: "Investiční životní pojištění", to: "/investicni-pojisteni" }, { t: "Balíčky ochrany", to: "/balicky" }, { t: "Pojištění pro podnikatele", to: "/balicky" }, { t: "Pojištění dětí", to: "/zivotni-pojisteni" }] },
-      { title: "Zdroje informací", links: [{ t: "Videa", to: "/#videa" }, { t: "Časté dotazy", to: "/#faq" }, { t: "Kalkulačka", to: "/#kalkulacka" }, { t: "Finanční kalkulačky Pana Čunga", to: "https://www.pancung.cz", ext: true }, { t: "Finanční kvíz", to: "https://kviz.pancung.cz/", ext: true }] },
+      { title: "Zdroje informací", links: [{ t: "Videa", to: "/jak-pracuji#obsah" }, { t: "Časté dotazy", to: "/#faq" }, { t: "Kalkulačka", to: "/kalkulacky" }, { t: "Finanční kalkulačky Pana Čunga", to: "https://www.pancung.cz", ext: true }, { t: "Finanční kvíz", to: "https://kviz.pancung.cz/", ext: true }] },
       { title: "Partneři", links: [{ t: "Staňte se partnerem", to: "/kontakt" }, { t: "Pro účetní a poradce", to: "/kontakt", ext: true }] },
     ],
     support: { title: "Podpora", hours: "24/7", chat: "Live chat", zalo: "Zalo", whatsapp: "WhatsApp", email: "podpora@taichinhantam.cz", rows: [["PO–PÁ", "8:00 – 17:00"], ["SO", "9:00 – 17:00"]], phone: "+420 000 000 000" },

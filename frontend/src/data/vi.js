@@ -97,8 +97,8 @@ const vi = {
     },
   ],
   stats: [
-    { value: "500+", label: "Khách hàng hài lòng trong cộng đồng Việt" },
-    { value: "8 năm", label: "Kinh nghiệm tư vấn tài chính" },
+    { value: "600 triệu Kč", label: "Đội ngũ đang quản lý" },
+    { value: "12 năm", label: "Tư vấn tài chính, chứng chỉ EFA" },
     { value: "15 phút", label: "Tư vấn miễn phí – trực tiếp, điện thoại hoặc Zalo" },
   ],
   about: {
@@ -106,7 +106,7 @@ const vi = {
     title: "Dẫn dắt mọi người đến",
     accent: "tự do tài chính",
     badge: "Tư vấn tài chính · Praha",
-    p1: "Tôi là Pan Čung. Suốt 8 năm, tôi giúp các gia đình và chủ kinh doanh người Việt tại Séc hiểu về tài chính – không thuật ngữ khó, không áp lực. Tôi giải thích bảo hiểm như giải thích cho chính gia đình mình.",
+    p1: "Tôi là Pan Čung. Suốt 12 năm, tôi giúp các gia đình và chủ kinh doanh người Việt tại Séc hiểu về tài chính – không thuật ngữ khó, không áp lực. Tôi giải thích bảo hiểm như giải thích cho chính gia đình mình.",
     p2: "Tôi tin rằng sự an tâm không nằm ở giấy tờ mà ở sự bình yên. Vì vậy tôi luôn trò chuyện trước về điều bạn muốn bảo vệ, rồi mới nói đến sản phẩm.",
     points: ["Tư vấn bằng tiếng Việt, tiếng Séc và tiếng Anh", "Độc lập – lựa chọn từ nhiều công ty bảo hiểm", "Trực tiếp tại Praha, qua điện thoại hoặc Zalo"],
     cta: "Đặt lịch gọi 15 phút miễn phí",
@@ -209,7 +209,7 @@ const vi = {
   footer: {
     cols: [
       { title: "Sản phẩm", links: [{ t: "Bảo hiểm nhân thọ", to: "/zivotni-pojisteni" }, { t: "Bảo hiểm nhân thọ đầu tư", to: "/investicni-pojisteni" }, { t: "Các gói bảo vệ", to: "/balicky" }, { t: "Bảo hiểm cho chủ kinh doanh", to: "/balicky" }, { t: "Bảo hiểm trẻ em", to: "/zivotni-pojisteni" }] },
-      { title: "Thông tin", links: [{ t: "Video", to: "/#videa" }, { t: "Câu hỏi thường gặp", to: "/#faq" }, { t: "Công cụ tính", to: "/#kalkulacka" }, { t: "Công cụ tính tài chính của Pan Čung", to: "https://www.pancung.cz", ext: true }, { t: "Bài kiểm tra tài chính", to: "https://kviz.pancung.cz/", ext: true }] },
+      { title: "Thông tin", links: [{ t: "Video", to: "/jak-pracuji#obsah" }, { t: "Câu hỏi thường gặp", to: "/#faq" }, { t: "Công cụ tính", to: "/kalkulacky" }, { t: "Công cụ tính tài chính của Pan Čung", to: "https://www.pancung.cz", ext: true }, { t: "Bài kiểm tra tài chính", to: "https://kviz.pancung.cz/", ext: true }] },
       { title: "Đối tác", links: [{ t: "Trở thành đối tác", to: "/kontakt" }, { t: "Dành cho kế toán & tư vấn", to: "/kontakt", ext: true }] },
     ],
     support: { title: "Hỗ trợ", hours: "24/7", chat: "Live chat", zalo: "Zalo", whatsapp: "WhatsApp", email: "podpora@taichinhantam.cz", rows: [["T2–T6", "8:00 – 17:00"], ["T7", "9:00 – 17:00"]], phone: "+420 000 000 000" },

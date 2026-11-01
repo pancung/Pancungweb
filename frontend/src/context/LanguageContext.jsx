@@ -11,10 +11,18 @@ const dictionaries = { cs: { ...cs, ...finance.cs, ...teya.cs }, vi: { ...vi, ..
 const LanguageContext = createContext({ lang: "cs", setLang: () => {}, t: cs });
 
 export function LanguageProvider({ children }) {
+  // Priority: ?lang=vi|cs in the URL (ad links) → saved choice → browser language → cs.
   const [lang, setLangState] = useState(() => {
+    const ok = (v) => v === "vi" || v === "cs";
     try {
+      const fromUrl = new URLSearchParams(window.location.search).get("lang");
+      if (ok(fromUrl)) {
+        localStorage.setItem(LANG_KEY, fromUrl);
+        return fromUrl;
+      }
       const saved = localStorage.getItem(LANG_KEY);
-      return saved === "vi" || saved === "cs" ? saved : "cs";
+      if (ok(saved)) return saved;
+      return (navigator.language || "").toLowerCase().startsWith("vi") ? "vi" : "cs";
     } catch {
       return "cs";
     }
